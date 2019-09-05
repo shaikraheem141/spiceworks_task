@@ -6,7 +6,7 @@ application up and running.
 Things you need to cover:
 
 **System dependencies**
-* `rvm, mysql, ruby-2.6.4`
+* `rvm, mysql, ruby-2.6.4, rails-6.0.0`
 
 **Setup Commands**
 * `bundle install`
