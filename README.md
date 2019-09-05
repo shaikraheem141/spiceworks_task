@@ -6,15 +6,15 @@ application up and running.
 Things you need to cover:
 
 **System dependencies**
-`rvm, mysql, ruby-2.6.4`
+* `rvm, mysql, ruby-2.6.4`
 
 **Setup Commands**
-`bundle install`
-`rails db:create`
-`rails db:migrate`
-`yarn add jquery`
-`rails db:seed`
-`rails s`
+* `bundle install`
+* `rails db:create`
+* `rails db:migrate`
+* `yarn add jquery`
+* `rails db:seed`
+* `rails s`
 
 **Login**
-`john@gmail.com / 123456`
+* `john@gmail.com / 123456`
