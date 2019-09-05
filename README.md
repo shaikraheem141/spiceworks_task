@@ -3,22 +3,18 @@
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+Things you need to cover:
 
-* Ruby version
+**System dependencies**
+`rvm, mysql, ruby-2.6.4`
 
-* System dependencies
+**Setup Commands**
+`bundle install`
+`rails db:create`
+`rails db:migrate`
+`yarn add jquery`
+`rails db:seed`
+`rails s`
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+**Login**
+`john@gmail.com / 123456`
