@@ -1,0 +1,24 @@
+%h1 Listing questions
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Title
+      %th Comments
+      %th
+      %th
+
+  %tbody
+    - @questions.includes(:comments).each do |question|
+      %tr
+        %td= question.title
+        %td= link_to pluralize(question.comments.count, 'Comment'), question
+        %td= link_to 'Edit', edit_question_path(question)
+        %td= link_to 'Destroy', question, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Question', new_question_path, class: "btn btn-primary"
+
+
+

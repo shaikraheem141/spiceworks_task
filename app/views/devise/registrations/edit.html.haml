@@ -1,0 +1,47 @@
+!!!
+%html{:lang => "en"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "Buidling online forum", :name => "description"}/
+    %title Online Forum - Edit Porfile
+    = stylesheet_link_tag 'application', media: 'all'
+    :css
+      #user_current_password {
+        margin-bottom: 10px;
+      }
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    / Custom styles for this template
+    = stylesheet_link_tag 'signin', media: 'all'
+  %body.text-center
+    = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-signin" }) do |f|
+      = render "devise/shared/error_messages", resource: resource
+      %h1.h3.mb-3.font-weight-normal Edit Profile
+      = f.label :name, class: 'sr-only'
+      = f.text_field :name, autofocus: true, placeholder: "Full Name", class: 'form-control'
+      = f.label :email, class: 'sr-only'
+      = f.email_field :email, placeholder: "Email Address", class: 'form-control'
+      = f.label :password, class: 'sr-only'
+      = f.password_field :password, placeholder: "Password (Min #{@minimum_password_length} Chars)", class: 'form-control'
+      = f.label :password_confirmation, class: 'sr-only'
+      = f.password_field :password_confirmation, placeholder: "Confirm Password", class: 'form-control'
+      = f.label :current_password, class: 'sr-only'
+      = f.password_field :current_password, placeholder: "Current Password", class: 'form-control'
+      = f.submit "Update", class: "btn btn-lg btn-primary btn-block"
+      = link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-lg btn-danger btn-block"
+      = link_to "Back", questions_path, class: "btn btn-dark btn-lg btn-block"
+      %p.mt-5.mb-3.text-muted © 2019-2020

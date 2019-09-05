@@ -1,0 +1,19 @@
+.card
+  = form_for @question, html: {class: "form-horizontal"} do |f|
+    - if @question.errors.any?
+      #error_explanation
+        - @question.errors.full_messages.each do |message|
+          .alert.alert-danger{:role => "alert"}
+            = message
+
+    .card-header
+      %strong Details of your question!!
+    .card-body.card-block
+      .row.form-group
+        .col.col-md-3
+          = f.label :title, class: "form-control-label"
+        .col-12.col-md-9
+          = f.text_field :title, class: "form-control", placeholder: "Enter your question ..."
+    .card-footer
+      = f.submit 'Save', class: "btn btn-primary btn-sm"
+      = link_to "Back", questions_path, class: "btn btn-sm btn-dark"

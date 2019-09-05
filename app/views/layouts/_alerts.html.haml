@@ -1,0 +1,11 @@
+- if defined?(notice) && !notice.nil?
+  .alert.alert-warning.alert-dismissible.fade.show{:role => "alert"}
+    %strong= notice
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×
+
+- if defined?(alert) && !alert.nil?
+  .alert.alert-warning.alert-dismissible.fade.show{:role => "alert"}
+    %strong= alert
+    %button.close{"aria-label" => "Close", "data-dismiss" => "alert", :type => "button"}
+      %span{"aria-hidden" => "true"} ×

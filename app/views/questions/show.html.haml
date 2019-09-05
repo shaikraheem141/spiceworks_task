@@ -1,0 +1,24 @@
+:javascript
+  $(document).ready(function(){
+    $(".sub-comment-form").hide();
+    $(".comment-icon").on("click", function() {
+      var comment_id = $(this).data("comment-id");
+      $(".sub-comment-form-"+comment_id).toggle(800);
+    });
+  });
+
+%hr/
+/ Comments Form
+%h1= @question.title
+.card.my-4
+  %h5.card-header Leave a Comment:
+  .card-body
+    = form_with model: [@question, Comment.new], local: true do |f|
+      .form-group
+        = f.text_area :body, class: "form-control", rows: "3"
+      = f.submit "Comment", class: "btn btn-primary"
+      = link_to "Back", questions_path, class: "btn btn-dark"
+/ Single Comment
+
+%h1= pluralize(@comments.count, 'Comment')
+= render(partial: 'comments/comment', collection: @question.comments)

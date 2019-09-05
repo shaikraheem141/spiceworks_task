@@ -1,0 +1,24 @@
+%hr/
+.media.mb-4
+  %img.d-flex.mr-3.rounded-circle{:alt => "", :src => "http://placehold.it/50x50"}/
+  .media-body
+    %h5.mt-0
+      = comment.user.name
+      - if current_user && current_user == comment.user
+        = link_to question_comment_path(@question, comment), method: :delete, data: { confirm: 'Are you sure?', "toggle": "tooltip" }, title: "Delete Comment" do
+          = fa_icon "trash", class: "text-muted pull-right", style: "color: red !important;"
+    %h6.mt-0
+      = comment.created_at.strftime("%d %b, %Y %I:%M:%S %p") 
+    = comment.body
+    = link_to "javascript:void(0)", class: "comment-icon", data: {"comment_id": comment.id, "toggle": "tooltip" }, title: "Add Comment" do
+      = fa_icon "comment", class: "text-muted pull-right"
+    .card.my-4.sub-comment-form{:class => "sub-comment-form-#{comment.id}"}
+      %h5.card-header Leave a Comment:
+      .card-body
+        = form_with model: [comment, Comment.new], local: true do |f|
+          .form-group
+            = f.text_area :body, class: "form-control", rows: "3"
+          = f.submit "Comment", class: "btn btn-primary"
+          = link_to "Back", questions_path, class: "btn btn-dark"
+    = render partial: 'comments/comment', collection: comment.comments
+  
